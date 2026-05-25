@@ -112,11 +112,27 @@ namespace LocalQuest
                 case "Yeah!":
                     ChangeStringSetting("Username");
                     ChangeStringSetting("DisplayName");
+                    SteamIdSetup();
                     Config.SetBool("FirstRun", true);
                     break;
                 case "Nope!":
+                    SteamIdSetup();
                     Config.SetBool("FirstRun", true);
                     return;
+            }
+        }
+
+        static void SteamIdSetup()
+        {
+            Console.Clear();
+            UiTools.WriteTitle();
+            Console.WriteLine("LocalQuest - Setup\nPlease enter your Steam ID (required for 2021 auth):\n");
+            Console.WriteLine("You can find it at steamcommunity.com/id/me (the number in the URL)");
+            Console.Write("> ");
+            string? Result = Console.ReadLine();
+            if (!string.IsNullOrEmpty(Result))
+            {
+                Config.SetString("SteamId", Result);
             }
         }
 

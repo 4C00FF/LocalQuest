@@ -663,6 +663,7 @@ namespace LocalQuest
             string Selection = UiTools.WriteControls(new List<string>()
             {
                 "Go back",
+                "2021",
                 "late 2019+",
                 "late 2018-mid 2019",
                 "mid-late 2018",
@@ -676,6 +677,21 @@ namespace LocalQuest
                 case "Go back":
                     Main(new string[0]);
                     return;
+                case "2021":
+                    Console.Clear();
+                    UiTools.WriteTitle();
+                    Console.Title = "LocalQuest - 2021";
+                    Console.WriteLine("LocalQuest - 2021");
+                    try
+                    {
+                        StartManager.GameVersion = "20210101";
+                        StartManager.StartSelected();
+                    }
+                    catch
+                    {
+                        StartFailure("Failed to start the server. [|X3]");
+                    }
+                    break;
                 case "late 2019+":
                     Console.Clear();
                     UiTools.WriteTitle();

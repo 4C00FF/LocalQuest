@@ -116,6 +116,11 @@ namespace LocalQuest
             // switch version and start the (hopefully) correct build
             switch (VerInt)
             {
+                case >= 20210101:
+                    Console.Title = "LocalQuest - 2021";
+                    GameServer.StartServer(["LocalQuest.Controllers.Late2018", "LocalQuest.Controllers.ServiceControllers"],
+                        "LocalQuest - 2021! server is online [|X3] (pres [ESC] to stop)", "2021");
+                    break;
                 case >= 20200403:
                     Console.Title = "LocalQuest - late 2019+";
                     GameServer.StartServer(["LocalQuest.Controllers.Late2018", "LocalQuest.Controllers.ServiceControllers"],
