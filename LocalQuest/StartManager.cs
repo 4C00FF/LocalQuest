@@ -85,7 +85,9 @@ namespace LocalQuest
             {
                 Api RebornGameServer = new Api("http://localhost:2056/");
                 Console.Title = "LocalQuest - mid 2018";
+                RebornGameServer.Listener.Prefixes.Add("http://127.0.0.1:2056/");
                 RebornGameServer.Listener.Prefixes.Add("http://localhost:2057/");
+                RebornGameServer.Listener.Prefixes.Add("http://127.0.0.1:2057/");
                 RebornGameServer.StartServer(["LocalQuest.Controllers.Mid2018"], "LocalQuest - ReCompat 2017! server is online [|X3]", "Mid2018");
                 return;
             }
@@ -95,6 +97,7 @@ namespace LocalQuest
 
             // create a server isntance
             Api GameServer = new Api("http://localhost:" + PortOverride + "/");
+            GameServer.Listener.Prefixes.Add("http://127.0.0.1:" + PortOverride + "/");
             
             // COMMANDS (splooty wanted this feature)
             Task.Run(() =>
