@@ -23,5 +23,17 @@ namespace LocalQuest.Controllers.ServiceControllers
                 }
             };
         }
+
+        [Get("/account/me")]
+        public Models.Modern.Profile Me()
+        {
+            return new Models.Modern.Profile()
+            {
+                accountId = long.Parse(Config.GetString("AccountId")),
+                displayName = Config.GetString("DisplayName"),
+                username = Config.GetString("Username"),
+                profileImage = Config.GetString("PFP")
+            };
+        }
     }
 }
