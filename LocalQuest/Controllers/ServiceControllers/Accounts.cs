@@ -47,12 +47,11 @@ namespace LocalQuest.Controllers.ServiceControllers
         }
 
         [Post("/player/heartbeat")]
-        public Models.Mid2018.SuccessResponse PlayerHeartbeat()
+        public Models._2020.HeartbeatResponse PlayerHeartbeat()
         {
-            return new Models.Mid2018.SuccessResponse()
+            return new Models._2020.HeartbeatResponse()
             {
-                Success = true,
-                Message = ""
+                PlayerId = long.Parse(Config.GetString("AccountId"))
             };
         }
     }
