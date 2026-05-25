@@ -21,11 +21,31 @@ namespace LocalQuest.Controllers.BuildDetection
 
             return new Nameserver()
             {
+                Accounts = "http://localhost:" + PortOverride + "/",
+                AI = "http://localhost:" + PortOverride + "/",
                 API = "http://localhost:" + PortOverride + "/",
                 Auth = "http://localhost:" + PortOverride + "/",
-                Images = "http://localhost:" + PortOverride + "/img/",
-                Notifications = "ws://localhost:" + PortOverride + "/",
+                CDN = "http://localhost:" + PortOverride + "/",
+                Chat = "http://localhost:" + PortOverride + "/",
+                Clubs = "http://localhost:" + PortOverride + "/",
                 Commerce = "http://localhost:" + PortOverride + "/",
+                Data = "http://localhost:" + PortOverride + "/",
+                Discovery = "http://localhost:" + PortOverride + "/",
+                Econ = "http://localhost:" + PortOverride + "/",
+                Images = "http://localhost:" + PortOverride + "/img/",
+                Leaderboard = "http://localhost:" + PortOverride + "/",
+                Link = "http://localhost:" + PortOverride + "/",
+                Lists = "http://localhost:" + PortOverride + "/",
+                Match = "http://localhost:" + PortOverride + "/",
+                Notifications = "http://localhost:" + PortOverride + "/",
+                PlatformNotifications = "http://localhost:" + PortOverride + "/",
+                PlayerSettings = "http://localhost:" + PortOverride + "/",
+                Rooms = "http://localhost:" + PortOverride + "/roomserver",
+                RoomComments = "http://localhost:" + PortOverride + "/",
+                Storage = "http://localhost:" + PortOverride + "/",
+                Strings = "http://localhost:" + PortOverride + "/",
+                StringsCDN = "http://localhost:" + PortOverride + "/",
+                Studio = "http://localhost:" + PortOverride + "/",
                 WWW = "http://localhost:" + PortOverride + "/"
             };
         }
