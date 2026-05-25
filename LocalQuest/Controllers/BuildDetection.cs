@@ -87,5 +87,13 @@ namespace LocalQuest.Controllers.BuildDetection
                 Server.OnRequest += StartManager.Request;
             return new VersionResponse();
         }
+
+        [Get("/api/versioncheck/v4")]
+        public VersionResponse CheckVersionV4()
+        {
+            if(Server != null)
+                Server.OnRequest += StartManager.Request;
+            return new VersionResponse();
+        }
     }
 }
