@@ -1274,7 +1274,7 @@ namespace LocalQuest.Controllers.MidLate2018
             }
             else
             {
-                Config.SetInt("CheerCategory", int.Parse(Category));
+                Config.SetInt("CheerCategory", int.Parse(Category.Trim('\'')));
             }
             await Notify.SendNotification(new Notification()
             {
