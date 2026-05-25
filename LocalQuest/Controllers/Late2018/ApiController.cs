@@ -1757,6 +1757,30 @@ namespace LocalQuest.Controllers.Late2018
             return NewAvatar;
         }
 
+        [Get("/api/messages/v1/favoriteFriendOnlineStatus")]
+        public List<object> FavoriteFriendOnlineStatus()
+        {
+            return new List<object>();
+        }
+
+        [Post("/api/players/v2/progression/bulk")]
+        public List<object> PlayerProgressionBulk()
+        {
+            return new List<object>();
+        }
+
+        [Post("/api/playerReputation/v2/bulk")]
+        public List<object> PlayerReputationBulk()
+        {
+            return new List<object>();
+        }
+
+        [Get("/thread")]
+        public List<object> Thread()
+        {
+            return new List<object>();
+        }
+
         [Get("/hub/v1")]
         public async Task Notifcation()
         {
