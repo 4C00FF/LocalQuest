@@ -45,5 +45,15 @@ namespace LocalQuest.Controllers.ServiceControllers
                 Message = ""
             };
         }
+
+        [Post("/player/heartbeat")]
+        public Models.Mid2018.SuccessResponse PlayerHeartbeat()
+        {
+            return new Models.Mid2018.SuccessResponse()
+            {
+                Success = true,
+                Message = ""
+            };
+        }
     }
 }
