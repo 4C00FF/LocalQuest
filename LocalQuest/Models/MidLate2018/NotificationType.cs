@@ -33,6 +33,9 @@ namespace LocalQuest.Models.MidLate2018
         PlayerEventDeleted,
         PlayerEventResponseChanged,
         PlayerEventResponseDeleted,
-        ChatMessageReceived = 90
+        ChatMessageReceived = 90,
+        SelfAccountUpdate = 100,
+        PlayerProgressionLevelUpdate = 101,
+        ReputationUpdate = 102
     }
 }

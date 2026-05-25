@@ -82,9 +82,9 @@ namespace LocalQuest.Controllers.Late2018
         }
 
         [Get("/api/config/v2")]
-        public Models.Mid2018.Config GetConfig()
+        public object GetConfig()
         {
-            return new Models.Mid2018.Config();
+            return new object();
         }
 
         [Post("/api/objectives/v1/updateobjective")]
@@ -99,10 +99,19 @@ namespace LocalQuest.Controllers.Late2018
             return new List<EquipmentItem>();
         }
 
+        [Get("/api/equipment/v2/getUnlocked")]
+        public void GetEquipmentV2() { }
+
         [Get("/api/playerevents/v1/all")]
         public PlayerEventData GetAllEvents()
         {
             return new PlayerEventData();
+        }
+
+        [Get("/api/challenge/v2/getCurrent")]
+        public object GetCurrentChallengeV2()
+        {
+            return new object();
         }
 
         [Get("/api/challenge/v1/getCurrent")]
@@ -447,10 +456,7 @@ namespace LocalQuest.Controllers.Late2018
         }
 
         [Get("/api/avatar/v3/saved")]
-        public List<SavedOutfit> GetSavedOutfitsV3()
-        {
-            return new List<SavedOutfit>();
-        }
+        public void GetSavedOutfitsV3() { }
 
         [Post("/api/presence/v2/setscreenmode")]
         public void SetScreen()
@@ -686,10 +692,7 @@ namespace LocalQuest.Controllers.Late2018
         }
 
         [Get("/api/images/v2/named")]
-        public List<NamedImage> GetNamedImages()
-        {
-            return new List<NamedImage>();
-        }
+        public void GetNamedImages() { }
 
         [Get("/api/config/v1/amplitude")]
         public AmplitudeConfig GetAmplitude()
@@ -710,10 +713,7 @@ namespace LocalQuest.Controllers.Late2018
         }
 
         [Get("/api/messages/v2/get")]
-        public List<Message> GetMessages()
-        {
-            return new List<Message>();
-        }
+        public void GetMessages() { }
 
         [Get("/api/relationships/v2/get")]
         public List<Relationship> Relationships()
@@ -1758,10 +1758,7 @@ namespace LocalQuest.Controllers.Late2018
         }
 
         [Get("/api/messages/v1/favoriteFriendOnlineStatus")]
-        public List<object> FavoriteFriendOnlineStatus()
-        {
-            return new List<object>();
-        }
+        public void FavoriteFriendOnlineStatus() { }
 
         [Post("/api/players/v2/progression/bulk")]
         public List<object> PlayerProgressionBulk()
@@ -1780,6 +1777,18 @@ namespace LocalQuest.Controllers.Late2018
         {
             return new List<object>();
         }
+
+        [Get("/api/roomkeys/v1/mine")]
+        public void GetRoomKeys() { }
+
+        [Get("/roomserver/featuredrooms/current")]
+        public void GetFeaturedRoomsCurrent() { }
+
+        [Get("/api/gamerewards/v1/pending")]
+        public void GetPendingGameRewards() { }
+
+        [Post("/api/quickPlay/v1/getandclear")]
+        public void GetAndClearQuickPlay() { }
 
         [Get("/hub/v1")]
         public async Task Notifcation()

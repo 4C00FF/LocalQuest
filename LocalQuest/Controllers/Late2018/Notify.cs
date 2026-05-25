@@ -40,6 +40,77 @@ namespace LocalQuest.Controllers.Late2018
                     {
                         // SignalR Core handshake response: {}<RS>
                         await Current.SendAsync(Encoding.UTF8.GetBytes("{}\x1e"), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                        long AccountId = long.Parse(LocalQuest.Config.GetString("AccountId"));
+
+                        await SendNotification(new Notification()
+                        {
+                            Id = "SelfAccountUpdate",
+                            Msg = new
+                            {
+                                email = "player@localquest.local",
+                                phone = (string?)null,
+                                juniorState = 0,
+                                parentAccountId = (long?)null,
+                                availableUsernameChanges = 1,
+                                birthday = "2000-01-01T00:00:00.000Z",
+                                accountId = AccountId,
+                                profileImage = LocalQuest.Config.GetString("PFP"),
+                                isJunior = false,
+                                platforms = -1,
+                                username = LocalQuest.Config.GetString("Username"),
+                                displayName = LocalQuest.Config.GetString("DisplayName"),
+                                createdAt = DateTime.UtcNow.ToString("o"),
+                                personalPronouns = 0,
+                                identityFlags = 0,
+                                bannerImage = (string?)null
+                            }
+                        });
+
+                        await SendNotification(new Notification()
+                        {
+                            Id = "AccountUpdate",
+                            Msg = new Profile()
+                        });
+
+                        await SendNotification(new Notification()
+                        {
+                            Id = "PlayerProgressionLevelUpdate",
+                            Msg = new { PlayerId = AccountId, Level = 1, XP = 0 }
+                        });
+
+                        await SendNotification(new Notification()
+                        {
+                            Id = "ReputationUpdate",
+                            Msg = new
+                            {
+                                accountId = AccountId,
+                                Noteriety = 0.0,
+                                IsCheerful = true,
+                                CheerCredit = 20,
+                                CheerGeneral = 0,
+                                CheerHelpful = 0,
+                                CheerGreatHost = 0,
+                                CheerSportsman = 0,
+                                CheerCreative = 0
+                            }
+                        });
+
+                        await SendNotification(new Notification()
+                        {
+                            Id = "PresenceUpdate",
+                            Msg = new HeartbeatResponse()
+                            {
+                                Error = "",
+                                Presence = new Presence()
+                                {
+                                    PlayerId = AccountId,
+                                    IsOnline = true,
+                                    PlayerType = PlayerType.SCREEN,
+                                    GameSession = null
+                                }
+                            }
+                        });
                     }
                     else if (NotifyString.Contains("heartbeat2"))
                     {
