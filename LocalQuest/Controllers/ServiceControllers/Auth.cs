@@ -1,4 +1,4 @@
-﻿using LocalQuest.Models._2020;
+using LocalQuest.Models._2020;
 using Microsoft.IdentityModel.Tokens;
 using QuerryNetworking.Core;
 using System;
@@ -13,7 +13,7 @@ namespace LocalQuest.Controllers.ServiceControllers
 {
     public class Auth : ClientRequest
     {
-        private const string JwtSecret = "localquest-secret";
+        private const string JwtSecret = "localquest-secret-key-do-not-share";
 
         [Get("/cachedlogin/forplatformid/{var}/{var}")]
         public List<CachedLogin> GetLogins(string Platform, string PlatformId)
