@@ -821,6 +821,17 @@ namespace LocalQuest.Controllers.Late2018
             return AvatarManager.AvatarItems;
         }
 
+        [Get("/api/avatar/v4/items")]
+        public List<AvatarItem> GetAvatarItemsV4()
+        {
+            if(AvatarManager.AvatarItems == null)
+            {
+                Log.Warn("Invalid avatar items list?!");
+                return new List<AvatarItem>();
+            }
+            return AvatarManager.AvatarItems;
+        }
+
         [Get("/api/versioncheck/v3")]
         public VersionResponse CheckVersion()
         {
