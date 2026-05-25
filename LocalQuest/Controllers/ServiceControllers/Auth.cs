@@ -31,10 +31,10 @@ namespace LocalQuest.Controllers.ServiceControllers
         }
 
         [Post("/connect/token")]
-        public TokenResponse ConnectToken(string grant_type, string account_id, string client_id)
+        public TokenResponse ConnectToken()
         {
+            string account_id = (Form["account_id"] ?? "").Trim('\'');
             string steamId = Config.GetString("SteamId") ?? "";
-            account_id = account_id.Trim('\'');
             var now = DateTimeOffset.UtcNow;
 
             var claims = new List<Claim>
