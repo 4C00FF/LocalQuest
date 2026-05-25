@@ -38,10 +38,8 @@ namespace LocalQuest.Controllers.Late2018
                     Log.Debug(NotifyString);
                     if(NotifyString.Contains("protocol"))
                     {
-                        await SendNotification(new Models.Late2018.NotifyMessage()
-                        {
-                            type = MessageTypes.Handshake
-                        });
+                        // SignalR Core handshake response: {}<RS>
+                        await Current.SendAsync(Encoding.UTF8.GetBytes("{}\x1e"), WebSocketMessageType.Text, true, CancellationToken.None);
                     }
                     else if (NotifyString.Contains("heartbeat2"))
                     {

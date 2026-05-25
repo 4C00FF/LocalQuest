@@ -35,5 +35,15 @@ namespace LocalQuest.Controllers.ServiceControllers
                 profileImage = Config.GetString("PFP")
             };
         }
+
+        [Post("/player/login")]
+        public Models.Mid2018.SuccessResponse PlayerLogin()
+        {
+            return new Models.Mid2018.SuccessResponse()
+            {
+                Success = true,
+                Message = ""
+            };
+        }
     }
 }
