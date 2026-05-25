@@ -34,6 +34,7 @@ namespace LocalQuest.Controllers.ServiceControllers
         public TokenResponse ConnectToken(string grant_type, string account_id, string client_id)
         {
             string steamId = Config.GetString("SteamId") ?? "";
+            account_id = account_id.Trim('\'');
             var now = DateTimeOffset.UtcNow;
 
             var claims = new List<Claim>
