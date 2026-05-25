@@ -27,7 +27,7 @@ namespace LocalQuest.Controllers.ServiceControllers
         [Get("/eac/challenge")]
         public string EacChallenge()
         {
-            return Guid.NewGuid().ToString();
+            return Convert.ToBase64String(Guid.NewGuid().ToByteArray());
         }
 
         [Post("/connect/token")]
