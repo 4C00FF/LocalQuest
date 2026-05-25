@@ -83,9 +83,9 @@ namespace LocalQuest
             // 2017 RebornRec compatibility
             if (GameVersion.Contains("2017") && Config.GetBool("ReCompat"))
             {
-                Api RebornGameServer = new Api("http://localhost:2056/");
+                Api RebornGameServer = new Api("http://+:2056/");
                 Console.Title = "LocalQuest - mid 2018";
-                RebornGameServer.Listener.Prefixes.Add("http://localhost:2057/");
+                RebornGameServer.Listener.Prefixes.Add("http://+:2057/");
                 RebornGameServer.StartServer(["LocalQuest.Controllers.Mid2018"], "LocalQuest - ReCompat 2017! server is online [|X3]", "Mid2018");
                 return;
             }
@@ -94,7 +94,7 @@ namespace LocalQuest
             int VerInt = int.Parse(GameVersion);
 
             // create a server isntance
-            Api GameServer = new Api("http://localhost:" + PortOverride + "/");
+            Api GameServer = new Api("http://+:" + PortOverride + "/");
             
             // COMMANDS (splooty wanted this feature)
             Task.Run(() =>

@@ -648,10 +648,10 @@ namespace LocalQuest
 
             if(Config.GetBool("AutoDetect"))
             {
-                Api DetectServer = new Api("http://localhost:" + PortOverride + "/");
+                Api DetectServer = new Api("http://+:" + PortOverride + "/");
                 if(Config.GetBool("ReCompat"))
                 {
-                    DetectServer.Listener.Prefixes.Add("http://localhost:2056/");
+                    DetectServer.Listener.Prefixes.Add("http://+:2056/");
                 }
                 DetectServer.OnRequest += StartManager.CheckRestart;
 
